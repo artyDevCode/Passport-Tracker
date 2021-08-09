@@ -1,0 +1,90 @@
+﻿@model PassportTracker.Models.LawCourts
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LawCourts</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Jurisdiction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Jurisdiction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Suburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_DX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_DX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Fax)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LC_Id ,SPHostUrl = SharePointContextFilterAttribute.sphosturl }) |
+    @Html.ActionLink("Back to List", "Index", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl })
+</p>

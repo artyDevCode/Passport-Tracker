@@ -1,0 +1,82 @@
+﻿@model PassportTracker.Models.PassportOffice
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PassportOffice</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Suburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PO_Location_Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PO_Location_Fax)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PO_Id , SPHostUrl = SharePointContextFilterAttribute.sphosturl }) |
+    @Html.ActionLink("Back to List", "Index", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl })
+</p>

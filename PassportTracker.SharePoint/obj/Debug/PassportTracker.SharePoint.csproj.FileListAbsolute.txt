@@ -1,0 +1,14 @@
+S:\Development Backup\Sharepoint Converted Apps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.dll.config
+S:\Development Backup\Sharepoint Converted Apps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.pdb
+S:\Development Backup\Sharepoint Converted Apps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.dll
+S:\Development Backup\Sharepoint Converted Apps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.pdb
+C:\C#Development\TFS SharePointApps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.dll.config
+C:\C#Development\TFS SharePointApps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.pdb
+C:\C#Development\TFS SharePointApps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.dll
+C:\C#Development\TFS SharePointApps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.pdb
+C:\C#Development\TFS SharePointApps\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.csprojResolveAssemblyReference.cache
+C:\C#Development\Projects\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.dll.config
+C:\C#Development\Projects\Passport Tracker\PassportTracker\PassportTracker.SharePoint\bin\Debug\PassportTracker.SharePoint.pdb
+C:\C#Development\Projects\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.csprojResolveAssemblyReference.cache
+C:\C#Development\Projects\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.dll
+C:\C#Development\Projects\Passport Tracker\PassportTracker\PassportTracker.SharePoint\obj\Debug\PassportTracker.SharePoint.pdb

@@ -1,0 +1,75 @@
+﻿@model IEnumerable<PassportTracker.Models.PassportOffice>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Country)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Suburb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_State)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_PostCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PO_Location_Fax)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Country)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Street)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Suburb)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_State)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_PostCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PO_Location_Fax)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PO_Id,  SPHostUrl = SharePointContextFilterAttribute.sphosturl  }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PO_Id , SPHostUrl = SharePointContextFilterAttribute.sphosturl }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PO_Id ,  SPHostUrl = SharePointContextFilterAttribute.sphosturl })
+        </td>
+    </tr>
+}
+
+</table>

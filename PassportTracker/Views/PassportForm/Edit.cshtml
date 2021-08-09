@@ -1,0 +1,309 @@
+﻿@model PassportTracker.Models.PassportForm
+
+
+<h2>Edit</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ActionLink("Back to List", "Index", "Home", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl }, new { @class = "btn btn-primary" })
+    <input type="submit" value="Save" class="btn btn-primary" />
+    <li class="dropdown btn btn-primary">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Receipts<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Initial..</a></li>
+            <li><a href="/PassportForm/DefendantReceipt/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size:10px; text-align:left">Defendant Receipt</a></li>
+            <li><a href="/PassportForm/BenchClerkAlert/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Bench Clerk Alert</a></li>
+            @if (Model.PF_Country.ToLower() == "australia")
+            {
+                <li><a href="/PassportForm/PassportHeldAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl"  id="tab1" style="font-size: 10px; text-align: left">Passport Held For Security - Aus</a></li>
+            }
+            else
+            {
+                    <li><a href="/PassportForm/PassportHeldNonAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Passport Held For Security - Non Aus</a></li>
+            }
+            <li class="divider"></li>
+            <li><a href="#">Final..</a></li>
+            @if (Model.PF_Status.ToLower() == "returned")
+            {
+                if (Model.PF_Country.ToLower() == "australia")
+                { 
+                <li><a href="/PassportForm/PassportReturnAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Passport Returned For Security - Aus</a></li>
+                }
+                else
+                {
+                 <li><a href="/PassportForm/PassportReturnNonAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Passport Returned For Security - Non Aus</a></li>
+                }
+                <li><a href="/PassportForm/PassportRetDef/@Model.PF_Id?SPHostUrl=" @SharePointContextFilterAttribute.sphosturl id="tab1" style="font-size: 10px; text-align: left">Passport Returned - Defendant</a></li>
+            }
+            <li class="divider"></li>
+            <li><a href="#">Transfer..</a></li>
+            @if (Model.PF_OriginalTransferedLoc != null)
+            {
+                if (Model.PF_Country.ToLower() == "australia")
+                {
+                   <li><a href="/PassportForm/PassportTransferedAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Passport Transfered For Security - Aus</a></li>            
+                }
+                else
+                {
+                      <li><a href="/PassportForm/PassportTransferedNonAus/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Passport Transfered For Security - Non Aus</a></li>
+                }
+            }
+        </ul>
+    </li>
+    <li class="dropdown btn btn-primary">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Passport<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="/PassportForm/ReturnedPrint/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size:10px; text-align:left">Returned &/or Print</a></li>
+            <li><a href="/PassportForm/UnmarkRetuned/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size: 10px; text-align: left">Unmark Returned</a></li>
+            @*<li><a href="/PassportForm/TransferTo/@Model.PF_Id" class="modalDlg" style="font-size:10px; text-align:left">Test ajax</a></li>*@
+        </ul>
+    </li>
+    <li class="dropdown btn btn-primary">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white;">Transfer<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            @*href="/PassportForm/TransferTo/@Model.PF_Id"*@
+            <li><a id="tab1" style="font-size:smaller; text-align:left">Transfer to...</a></li>          
+            @Html.DropDownList("PF_Current_Location1", ViewData["ILNames"] as SelectList, new { @style = "font-size:smaller; border:none; " })
+
+            @*@if (Model.PF_Status.ToLower() == "pending") // != string.Empty)
+            {*@
+                <li class="divider"></li>
+                <li><a href="/PassportForm/AcceptTransfer/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size:smaller; text-align: left">Accept</a></li>
+            @*}
+            @if (Model.PF_Status.ToLower() == "pending") // != "returned")
+            {*@
+                <li class="divider"></li>
+                <li><a href="/PassportForm/CancelTransfer/@Model.PF_Id?SPHostUrl=@SharePointContextFilterAttribute.sphosturl" id="tab1" style="font-size:smaller; text-align: left">Cancel</a></li>
+           @* }*@
+        </ul>
+    </li>
+
+
+    <div class="form-horizontal">
+    
+
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.PF_Id)
+        @Html.HiddenFor(model => model.PF_Initial_Location)
+        @Html.HiddenFor(model => model.PF_Country_Location)
+        @Html.HiddenFor(model => model.PF_Country)
+        @Html.HiddenFor(model => model.PF_Date_Returned)
+        @Html.HiddenFor(model => model.PF_Passport_Expiry_Date)
+        @Html.HiddenFor(model => model.PF_Status)
+        @*@Html.HiddenFor(model => model.PF_DateCreated)*@
+        @Html.HiddenFor(model => model.PF_Date_Created)
+        @Html.HiddenFor(model => model.PF_Created)
+        @Html.HiddenFor(model => model.PF_Deleted)
+        @Html.HiddenFor(model => model.PF_OriginalTransferedLoc)
+
+
+        <table border="0">
+            <tr>
+                <td class="auto-style15">
+                    <table border="1" cellspacing="0" cellpadding="4" style="font-family: Arial; font-size: 10pt; background-color:whitesmoke; width:100%;">
+                        <tr style="background-color:threeddarkshadow;color:white"><th align="center"><b>Defendant Details</b></th></tr>
+                        <tr>
+                            <td class="auto-style14">
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Name)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.PF_Name)
+                                            @Html.ValidationMessageFor(model => model.PF_Name)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Case_Id)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.PF_Case_Id)
+                                            @Html.ValidationMessageFor(model => model.PF_Case_Id)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Next_Hearing_Date)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.ShortDate(Model.PF_Next_Hearing_Date, "PF_Next_Hearing_Date", true)
+                                            @*@Html.EditorFor(model => model.PF_Next_Hearing_Date)*@
+                                            @Html.ValidationMessageFor(model => model.PF_Next_Hearing_Date)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Passport_Number)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.PF_Passport_Number)
+                                            @Html.ValidationMessageFor(model => model.PF_Passport_Number)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Country):
+                                        </td>
+
+                                        <td align="left" >                                     
+                                            @Html.DropDownList("CS_Id", ViewData["CNames"] as SelectList)
+                                            @Html.ValidationMessageFor(model => model.PF_Country)</td>
+                                        <td>
+                                            <p id="Country"></p>
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Date_Of_Birth)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.ShortDate(Model.PF_Date_Of_Birth, "PF_Date_Of_Birth", true)
+                                            @*@Html.EditorFor(model => model.PF_Date_Of_Birth)*@
+                                            @Html.ValidationMessageFor(model => model.PF_Date_Of_Birth)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Place_Of_Birth)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.PF_Place_Of_Birth)
+                                            @Html.ValidationMessageFor(model => model.PF_Place_Of_Birth)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Other)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.PF_Other)
+                                            @Html.ValidationMessageFor(model => model.PF_Other)
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table border="0">
+            <tr>
+                <td class="auto-style15">
+                    <table border="1" cellspacing="0" cellpadding="4" style="font-family: Arial; font-size: 10pt; background-color:whitesmoke; width:100%;">
+                        <tr style="background-color:threeddarkshadow;color:white"><th align="center"><b>Additional Information</b></th></tr>
+                        <tr>
+                            <td class="auto-style14">
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Initial_Location):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.DisplayFor(model => model.PF_Initial_Location)
+                                            @*@Html.DropDownList("PF_Initial_Location", ViewData["ILNames"] as SelectList, new {value = Model.PF_Initial_Location })*@
+                                            @Html.ValidationMessageFor(model => model.PF_Initial_Location)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Created)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.DisplayFor(model => model.PF_Created)
+                                            @*@Html.ValidationMessageFor(model => model.PF_Created)*@
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Date_Created)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.ReadOnlyInputFor(Model.PF_Date_Created, "PF_Date_Created", "datetime")
+                                            @*@Model.PF_Date_Created.ToString("dd-MMM-yyyy") at @Model.PF_Date_Created.ToString("hh:mm tt")*@                                         
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table  border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.PF_Current_Location)
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.ReadOnlyInputFor(Model.PF_Current_Location, "PF_Current_Location", "text")   
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    @section DocumentLog
+    {
+        @*@if (Model.PF_InformationLog != null)
+        {*@
+            @foreach (var item in Model.PF_InformationLog)
+            {
+                <h5 style="font-family: Arial; font-size: 8pt; width: 100%; background-color: whitesmoke;">
+                    @item.IL_ChangesLog  @item.IL_ModifiedBy
+                </h5>
+            }
+        @*}*@
+        @*<h5 style="font-family: Arial; font-size: 10pt; width: 100%; padding: 4px; background-color: whitesmoke;">
+            Record created by @Model.PF_Created on @Model.PF_Date_Created
+        </h5>*@
+
+    }
+}
+
+

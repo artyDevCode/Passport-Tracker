@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="1ab5db5d-97fc-46ab-83eb-fec5e591f135" solutionId="1ab5db5d-97fc-46ab-83eb-fec5e591f135" resetWebServer="false" sharePointProductVersion="15.0" name="PassportTracker.SharePoint" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="b4f3bd29-8826-4764-a55f-ca5e0bc2d9f2" />
+  </features>
+</package>

@@ -1,0 +1,96 @@
+﻿@model PassportTracker.Models.LawCourts
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LawCourts</h4>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+    <div class="form-actions no-color">
+        <input type="submit" value="Delete" class="btn btn-primary" /> 
+        @Html.ActionLink("Back to List", "Index", "Location", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl }, new { @class = "btn btn-primary" })
+    </div>
+    }
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Jurisdiction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Jurisdiction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Street)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Street)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Suburb)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Suburb)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_State)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_State)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_DX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_DX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_PostCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_PostCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LC_Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LC_Fax)
+        </dd>
+
+    </dl>
+
+  
+</div>

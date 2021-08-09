@@ -1,0 +1,51 @@
+﻿@model PassportTracker.Models.LocationVM
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <select style=" border:1px solid;  font-size: 15px; font-weight: initial; padding: 2px 10px; width: 250px; *width: 250px; *background: #58B14C" name='PreviousReceiver' onchange='if (this.value == "Law")  {window.location.href = "../LawCourts/Create"} else {window.location.href = "../PassportOffice/Create"}' >; " name='PreviousReceiver' onchange='if (this.value == "Law")  {window.location.href = "../LawCourts/Create"} else {window.location.href = "../PassportOffice/Create"}' >
+        <option value="">NEW Location</option>
+        <option value='Law'>Court Location</option>
+        <option value='PO'>Passport Office Location</option>
+    </select>
+  
+}
+
+    <h2>Documents</h2>
+
+    <table id="locationDatatable" border="0" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Location</th>
+                <th></th>
+                <th>Location</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Location</th>
+                <th></th>
+                <th>Location</th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in Model.lawCourtsVM)
+            {
+                <tr class="Law_Court" id="1">
+                    <td>Law Court's</td>
+                    <td></td>
+                    <td>@Html.ActionLink(item.VM_LC_Name, "Edit", "LawCourts", new { id = item.VM_LC_Id ,  SPHostUrl = SharePointContextFilterAttribute.sphosturl }, null)</td>
+                </tr>
+            }
+            @foreach (var item in Model.passportOfficeVM)
+            {
+                <tr class="Passports_Office" id="2">
+                    <td id="tab2">Passport Office's</td>
+                    <td id="tab2">@item.VM_PO_Location_Country</td>
+                    <td id="tab3">@Html.ActionLink(item.VM_PO_Location_Name, "Edit", "PassportOffice", new { id = item.VM_PO_Id , SPHostUrl = SharePointContextFilterAttribute.sphosturl }, null)</td>
+                </tr>
+            }
+        </tbody>
+    </table>

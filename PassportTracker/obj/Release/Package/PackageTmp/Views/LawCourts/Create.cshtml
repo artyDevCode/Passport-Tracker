@@ -1,0 +1,159 @@
+﻿@model PassportTracker.Models.LawCourts
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+
+         <h4>Law Courts</h4>
+            <div class="form-group">
+            @*<div class="col-md-offset-2 col-md-10">*@
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="image" class="BackDoclogo" />
+                @Html.ActionLink("Back to List", "Index", "Location", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl }, new { @class = "btn btn-primary" })
+            @*</div>*@
+        </div>
+    <div class="form-horizontal">
+   
+        @Html.ValidationSummary(true)
+
+        <table border="0">
+            <tr>
+                <td class="auto-style15">
+                    <table border="1" cellspacing="0" cellpadding="4" style="font-family: Arial; font-size: 10pt; background-color:whitesmoke; width:100%;">
+                        <tr style="background-color:threeddarkshadow;color:white"><th align="center"><b>Event Details</b></th></tr>
+                        <tr>
+                            <td class="auto-style14">
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Jurisdiction):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.DropDownList("LC_Jurisdiction", ViewData["JNames"] as SelectList)
+                                            @Html.ValidationMessageFor(model => model.LC_Jurisdiction)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Name):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_Name)
+                                            @Html.ValidationMessageFor(model => model.LC_Name)
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Street):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_Street)
+                                            @Html.ValidationMessageFor(model => model.LC_Street)
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Suburb):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_Suburb)
+                                            @Html.ValidationMessageFor(model => model.LC_Suburb)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_State):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_State)
+                                            @Html.ValidationMessageFor(model => model.LC_State)
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_PostCode):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_PostCode)
+                                            @Html.ValidationMessageFor(model => model.LC_PostCode)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_DX):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_DX)
+                                            @Html.ValidationMessageFor(model => model.LC_DX)
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: whitesmoke;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Phone):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_Phone)
+                                            @Html.ValidationMessageFor(model => model.LC_Phone)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                                <table border="0" style="font-family: Arial; font-size: 10pt; width: 100%; background-color: threedlightshadow;" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" nowrap class="auto-style5">
+                                            @Html.DisplayNameFor(model => model.LC_Fax):
+                                        </td>
+
+                                        <td align="left">
+                                            @Html.EditorFor(model => model.LC_Fax)
+                                            @Html.ValidationMessageFor(model => model.LC_Fax)
+                                        </td>
+                                    </tr>
+
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+}
+
+
+

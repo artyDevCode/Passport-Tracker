@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PassportTracker.Models.Access>
+
+@{
+    ViewBag.Title = "Access Control";
+}
+
+<h1></h1>
+
+    <p>
+        @Html.ActionLink("Add", "Create", new { SPHostUrl = SharePointContextFilterAttribute.sphosturl }, new { @class = "btn btn-primary" })
+    </p>
+
+    <table class="table"   id="accessgroups" border="0" cellpadding="0" cellspacing="0">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.AccessGroup)</th>
+                <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                <td id="tab2">&nbsp</td>
+            </tr>
+        </thead>
+
+        <tbody>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.AccessGroup)</td>
+                        <td id="tab1"> @Html.DisplayFor(modelItem => item.UserName)</td>
+                        <td>@Html.ActionLink("Delete", "Delete", "Access", new { id = item.Id, SPHostUrl = SharePointContextFilterAttribute.sphosturl }, null)</td>
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+       
